@@ -23,7 +23,7 @@ class Individual:
         self.crowdingDistance = 0
         self.genotype = genotype
         self.fenotype = Fenotype(genotype)
-    def __lt__(self, other):#LISTO???
+    def __lt__(self, other):
         return crowdedComparisonOperator(self, other) == False
     def __gt__(self, other):
         return crowdedComparisonOperator(self, other) == True
@@ -75,7 +75,7 @@ def isWorse(a, b):
     else:
         return False
 
-def fastNonDominatedSort(population): #LISTO
+def fastNonDominatedSort(population):
     '''
        Fast NonDominated Sort
             Recibe a la población y regresa una lista con las fronteras de la población.
@@ -255,76 +255,14 @@ def sort(population):
         conjuntoComparacion.pop(indice)
     return listaOrdenada
 
-'''
-poblacioninicial = []
-
-for i in range(0, 100):
-    poblacioninicial.append(Individual("random", Genotype(random.random()*100)))
-
-listaordenada = fastNonDominatedSort( poblacioninicial )
-
-for a in listaordenada:
-    print("_______f_______")
-    for b in a:
-        print("  ", b.genotype.gene, "\t", b.name , "\t", b.rank)
-
-print("****")
-
-fronteras_crowding_distance = []
-for frontera in listaordenada:
-    fronteras_crowding_distance.append(crowdingDistanceAssigment(frontera))
-
-print("^^^^")
-    
-for frontera_crowding_distance in fronteras_crowding_distance:
-    print("_______f_______(c/crowding distance)",fronteras_crowding_distance.index(frontera_crowding_distance))
-    for individuo in frontera_crowding_distance:
-        print(len(individuo.s) ,"individuo gen:", individuo.genotype.gene, "crowding distance:", individuo.crowdingDistance)
-        for objective in individuo.fenotype.objectives:
-            print("\t",objective)
-'''
-      
-'''
-parents = set()
-children = set()
-_p = set()
-n = 10
-i = 0
-
-r = parents | children
-f = fastNonDominatedSort(r)
-
-while(len(_p) < n ):
-    print("f [",i,"] =", f[i])
-    crowdingDistanceAssigment(f[i])
-    _p = _p | f[i]
-    i = i + 1
-_p.sort(key=cmp_to_key(crowdedComparisonOperator))
-_p = _p[0:len(p)]
-children = makenewpopulation(_p)
-t = t + 1
-
-'''
-
 
 poblacioninicial = []
-
 for i in range(0, 100):
     poblacioninicial.append(Individual("poblacion inicial", Genotype(random.random()*100)))
-
 parents = set(poblacioninicial)
-
-####
-for i in parents:
-    print("Poblacion inicial :",i.genotype.gene)
-####
-
-
 children = set()
 
-
 for contador in range(0, 200):
-    
     _p = set()
     n = 100
     i = 0
@@ -333,17 +271,10 @@ for contador in range(0, 200):
     children = set(children)
     r = parents | children
     f = fastNonDominatedSort(r)
-
-    ####
-    
     for a in f:
         print("_______f_______")
         for b in a:
-            #print("  ", b.genotype.gene, "\t", b.name , "\t", b.rank, "\t", b.fenotype.objectives[1])
             print("  ", b.genotype.gene, "\t", b.fenotype.objectives[0] ,"\t", b.fenotype.objectives[1])
-
-    ####
-
     while(len(_p) < n ):
         if(i == len(f)):
             break
@@ -355,21 +286,3 @@ for contador in range(0, 200):
     children = makeNewPopulation(_p)
     t = t + 1
     parents = _p
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
