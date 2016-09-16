@@ -1,3 +1,3 @@
 # NSGA-II
 Non-dominated Sorting Genetic Algorithm
-![Alt text](/banner.png?raw=true "Optional Title")
+![Alt text](Resources/banner.png?raw=true "Optional Title")
