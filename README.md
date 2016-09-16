@@ -1,3 +1,3 @@
-# NSGA-II
-Non-dominated Sorting Genetic Algorithm
-![Alt text](Resources/banner.png?raw=true "Optional Title")
+![](Resources/banner.png?raw=true)
+
+To run this project with Xcode just select the python3.3 binary on the scheme settings and run as you would usually. 
